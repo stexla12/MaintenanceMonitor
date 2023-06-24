@@ -10,7 +10,26 @@ public class MaintenanceMonitorController {
 
     @GetMapping("/api/message")
     public String getMessage() {
+
         return currentMessage;
+    }
+    @GetMapping("/api/message/set")
+    public static String setMessage(@RequestParam String a) {
+        currentMessage = a;
+        return a;
+    }
+    public static String getcurrentMessage(){
+        return currentMessage;
+    }
+
+    @GetMapping("/api/message/reset")
+    public static String resetMessage() {
+        currentMessage = defaultMessage;
+        return defaultMessage;
+    }
+
+    public static String getDefaultMessage() {
+        return defaultMessage;
     }
 
 
